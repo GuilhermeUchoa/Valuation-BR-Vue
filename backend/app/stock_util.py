@@ -7,6 +7,7 @@ Created on Thu Feb  4 18:55:05 2021
 from . import db  
 from .models import Acao
 from yahooquery import Ticker
+import yfinance as yf
 from datetime import datetime
 import pandas as pd
 import numpy as np
@@ -29,8 +30,11 @@ def get_resultadonaoop(ticker):
 # Pegar cotacao do momento usando yahooquery (dinamico com preco)
 def get_cotacao(ticker):
     if (get_acao(ticker) is not None):
-        acao = Ticker(ticker+'.SA')
-        preco = acao.price[ticker+'.SA']['regularMarketPrice']
+
+
+        acao = yf.download(ticker+'.SA')
+        preco = acao['Close'].iloc[-1]
+
         return preco
     else: 
         return 0
