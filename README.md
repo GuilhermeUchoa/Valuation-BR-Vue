@@ -1,12 +1,12 @@
 #Iniciar o projeto
 
-cd frontend
-npm install
-npm run serve
+-cd frontend
+-npm install
+-npm run serve
 
-cd backend
-pip install -r requerements.txt
-flask run
+-cd backend
+-pip install -r requerements.txt
+-flask run
 
 Abra os links indicados no shell e seja feliz
 
